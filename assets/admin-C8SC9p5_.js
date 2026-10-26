@@ -1,4 +1,4 @@
-import{a as N,e as f,b as O,c as L,s as M,D as T,t as b}from"./photos-C84wT6Q6.js";const u=document.getElementById("admin"),z="nl:admin-pass";let v,E,m=sessionStorage.getItem(z)??"",d=null,c=location.hash.slice(1)||"quiz",i=[],q=!1;addEventListener("beforeunload",a=>{q&&a.preventDefault()});async function D(){if({admin:v,kind:E}=await N(),m||E==="local")return x();j()}function j(a=""){u.innerHTML=`<main class="a-login">
+import{a as N,e as f,b as O,c as L,s as M,D as T,t as b}from"./photos-DBkQTDQD.js";const u=document.getElementById("admin"),z="nl:admin-pass";let v,E,m=sessionStorage.getItem(z)??"",d=null,c=location.hash.slice(1)||"quiz",i=[],q=!1;addEventListener("beforeunload",a=>{q&&a.preventDefault()});async function D(){if({admin:v,kind:E}=await N(),m||E==="local")return x();j()}function j(a=""){u.innerHTML=`<main class="a-login">
     <h1>後台</h1>
     <p>給昇翰和優用的。可以編輯遊戲題庫、看所有紙條，和管理成績。</p>
     <form>
