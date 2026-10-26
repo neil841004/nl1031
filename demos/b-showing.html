@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>風格 B · 開演前 Now Showing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif+TC:wght@500;900&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   B · 開演前 Now Showing
+   The opening film is a cinema pre-show and the seat gift is popcorn,
+   so the whole phone is the cinema: velvet, a marquee of bulbs over
+   the names, the album as a film strip, notes as torn ticket stubs,
+   and the quiz as the intermission trivia on the screen.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --velvet: #6e0d1c;
+  --deep: #1a0709;
+  --cream: #f7e9cc;
+  --gold: #f2b632;
+  --rose: #ff6f7d;
+  --teal: #2fb7a8;
+  --zh: "Noto Serif TC", serif;
+  --en: "DM Serif Display", "Noto Serif TC", serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #0d0405; }
+body { color: var(--cream); font-family: var(--zh); -webkit-font-smoothing: antialiased; }
+.phone { max-width: 430px; margin: 0 auto; background: var(--deep); overflow: hidden; }
+section { position: relative; padding: 30px 20px; }
+
+/* velvet curtain folds */
+.velvet { background:
+  repeating-linear-gradient(90deg, rgb(0 0 0 / .28) 0 6px, rgb(255 255 255 / .04) 14px, rgb(0 0 0 / .2) 24px, rgb(0 0 0 / .32) 30px),
+  var(--velvet); }
+
+/* ── hero: the marquee ── */
+.hero { padding: 26px 16px 34px; min-height: 100svh; display: flex; flex-direction: column; }
+.marquee { position: relative; padding: 18px 16px 22px; background: var(--cream); color: var(--deep); text-align: center; border-radius: 6px;
+  box-shadow: 0 0 0 6px var(--gold), 0 0 0 9px var(--deep), 0 0 40px 8px rgb(242 182 50 / .35); }
+.bulbs { position: absolute; inset: -6px; pointer-events: none; }
+.bulbs i { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: #fff3c2; box-shadow: 0 0 8px 2px #ffd36b; animation: blink 1.2s infinite steps(1); }
+@keyframes blink { 50% { background: #8a5a1a; box-shadow: none; } }
+.marquee small { display: block; font: 900 12px/1 var(--zh); letter-spacing: .5em; color: var(--velvet); }
+.marquee h1 { margin: 8px 0 2px; font: 400 64px/.92 var(--en); letter-spacing: -.01em; }
+.marquee h1 em { color: var(--velvet); }
+.marquee p { margin: 6px 0 0; font: 900 14px/1.5 var(--zh); letter-spacing: .25em; }
+.screen { position: relative; margin: 26px 6px 0; aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; box-shadow: 0 30px 60px -20px rgb(255 111 125 / .45); }
+.screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; animation: zoom 9s ease-in-out infinite alternate; }
+@keyframes zoom { to { transform: scale(1.06); } }
+.screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgb(26 7 9 / .85)); }
+.screen .rating { position: absolute; left: 14px; bottom: 14px; z-index: 2; font: 900 13px/1.5 var(--zh); letter-spacing: .1em; }
+.screen .rating b { display: inline-block; background: var(--gold); color: var(--deep); padding: 1px 8px; margin-right: 6px; border-radius: 3px; }
+.ask { margin-top: 24px; }
+.ask label { display: block; font: 900 20px/1.4 var(--zh); margin-bottom: 10px; color: var(--gold); }
+.ask .field { display: flex; gap: 8px; }
+.ask input { flex: 1; min-width: 0; height: 56px; border-radius: 999px; border: 2px solid var(--gold); background: transparent; color: var(--cream); padding: 0 20px; font: 500 17px var(--zh); outline: none; }
+.ask input::placeholder { color: rgb(247 233 204 / .5); }
+.ask button { border: 0; border-radius: 999px; background: var(--gold); color: var(--deep); padding: 0 24px; font: 900 17px var(--zh); cursor: pointer; }
+
+/* ── doors: three tickets ── */
+.tickets { padding: 34px 18px; }
+.tickets h2 { margin: 0 0 18px; font: 400 italic 30px var(--en); color: var(--gold); text-align: center; }
+.ticket { display: grid; grid-template-columns: 1fr 92px; text-decoration: none; color: var(--deep); margin-bottom: 14px; filter: drop-shadow(0 10px 14px rgb(0 0 0 / .35));
+  transition: transform .3s cubic-bezier(.22,1,.36,1); }
+.ticket:active { transform: scale(.97) rotate(-1deg); }
+.ticket .main, .ticket .stub { padding: 18px 18px; background: var(--c); }
+.ticket .main { border-radius: 10px 0 0 10px; -webkit-mask: radial-gradient(circle 10px at 100% 50%, transparent 98%, #000) ; mask: radial-gradient(circle 10px at 100% 50%, transparent 98%, #000); }
+.ticket .stub { border-radius: 0 10px 10px 0; border-left: 2px dashed rgb(26 7 9 / .4); display: grid; place-items: center; text-align: center; font: 900 12px/1.4 var(--zh); letter-spacing: .1em; }
+.ticket .stub b { display: block; font: 400 30px/1 var(--en); letter-spacing: 0; }
+.ticket h3 { margin: 0; font: 900 36px/1.1 var(--zh); }
+.ticket p { margin: 6px 0 0; font: 500 14px/1.4 var(--zh); }
+.t1 { --c: var(--cream); } .t2 { --c: var(--rose); } .t3 { --c: var(--teal); }
+
+/* ── album: a film strip ── */
+.strip-wrap h3, .notes h3, .quiz h3 { margin: 0 0 16px; font: 900 28px var(--zh); }
+.strip-wrap h3 em, .notes h3 em, .quiz h3 em { font: 400 italic 20px var(--en); color: var(--gold); margin-left: 8px; }
+.strip { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 22px 12px; margin: 0 -20px; background: #050203;
+  background-image: radial-gradient(circle at 50% 50%, var(--deep) 3px, transparent 3.5px), radial-gradient(circle at 50% 50%, var(--deep) 3px, transparent 3.5px);
+  background-size: 18px 22px; background-position: 0 0, 0 100%; background-repeat: repeat-x; scrollbar-width: none; }
+.frame { flex: none; width: 74%; scroll-snap-align: center; position: relative; }
+.frame img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; border-radius: 3px; }
+.frame .like { position: absolute; left: 10px; bottom: 10px; }
+.like { display: inline-flex; align-items: center; gap: 7px; border: 0; border-radius: 999px; background: rgb(26 7 9 / .7); color: var(--cream); padding: 8px 14px; font: 900 16px var(--zh); cursor: pointer; backdrop-filter: blur(6px); }
+.like svg { width: 22px; height: 22px; fill: none; stroke: var(--cream); stroke-width: 2.2; }
+.like.on svg { fill: var(--rose); stroke: var(--rose); }
+.hint { margin: 10px 0 0; font: 500 13px var(--zh); opacity: .7; text-align: center; }
+
+/* ── notes: stubs ── */
+.stubnote { position: relative; background: var(--cream); color: var(--deep); padding: 18px 18px 14px 46px; margin-bottom: 12px; border-radius: 8px; font: 500 17px/1.6 var(--zh);
+  -webkit-mask: radial-gradient(circle 9px at 0 50%, transparent 98%, #000); mask: radial-gradient(circle 9px at 0 50%, transparent 98%, #000); }
+.stubnote::before { content: attr(data-no); position: absolute; left: 12px; top: 50%; transform: translateY(-50%) rotate(-90deg); font: 900 10px var(--zh); letter-spacing: .2em; opacity: .55; }
+.stubnote cite { display: block; font: 900 13px var(--zh); font-style: normal; margin-top: 8px; color: var(--velvet); }
+.stubnote.alt { background: var(--gold); margin-left: 24px; }
+.stubnote.priv { background: var(--teal); }
+.stubnote .p { position: absolute; right: 12px; top: 12px; font: 900 11px var(--zh); border: 1.5px solid; padding: 2px 6px; border-radius: 3px; }
+
+/* ── quiz: intermission ── */
+.quiz { padding-bottom: 50px; }
+.intermission { background: #050203; border-radius: 10px; padding: 24px 18px; box-shadow: inset 0 0 0 2px rgb(242 182 50 / .3), 0 0 50px rgb(47 183 168 / .15); }
+.intermission small { font: 900 12px var(--zh); letter-spacing: .4em; color: var(--teal); }
+.qtext { margin: 10px 0 18px; font: 900 23px/1.45 var(--zh); }
+.opt { display: block; width: 100%; text-align: left; border: 0; border-radius: 999px; background: rgb(247 233 204 / .1); color: var(--cream); padding: 15px 20px; font: 500 17px var(--zh); margin-bottom: 8px; cursor: pointer; transition: background .25s, transform .14s; }
+.opt:active { transform: scale(.98); }
+.opt.right { background: var(--teal); color: var(--deep); font-weight: 900; }
+.opt.wrong { background: var(--rose); color: var(--deep); }
+.foot { text-align: center; padding: 30px 20px 40px; font: 400 italic 22px var(--en); color: var(--gold); }
+.foot small { display: block; font: 900 11px var(--zh); letter-spacing: .4em; color: var(--cream); opacity: .6; margin-top: 6px; }
+.burst { position: fixed; pointer-events: none; z-index: 99; }
+.burst svg { width: 100%; height: 100%; }
+</style>
+</head>
+<body>
+<div class="phone">
+  <section class="hero velvet">
+    <div class="marquee">
+      <div class="bulbs" aria-hidden="true"></div>
+      <small>今日上映　NOW SHOWING</small>
+      <h1>Neil <em>&amp;</em><br>Linda</h1>
+      <p>林昇翰 × 吳優</p>
+    </div>
+    <div class="screen">
+      <img src="../p/3736-1280.webp" alt="">
+      <span class="rating"><b>普遍級</b>2026.10.31　格萊天漾 雲詠廳</span>
+    </div>
+    <form class="ask" onsubmit="return false">
+      <label for="n">請出示你的稱呼，我們幫你帶位。</label>
+      <div class="field"><input id="n" placeholder="例如：阿哲"><button>入場</button></div>
+    </form>
+  </section>
+
+  <nav class="tickets">
+    <h2>Tonight's program</h2>
+    <a class="ticket t1" href="#album"><div class="main"><h3>相冊</h3><p>94 格底片，從白色攝影棚到海邊</p></div><div class="stub"><span><b>01</b>ADMIT ONE</span></div></a>
+    <a class="ticket t2" href="#notes"><div class="main"><h3>傳紙條</h3><p>散場前，留一句話給我們</p></div><div class="stub"><span><b>02</b>ADMIT ONE</span></div></a>
+    <a class="ticket t3" href="#quiz"><div class="main"><h3>考考你</h3><p>中場休息的有獎（沒有獎）問答</p></div><div class="stub"><span><b>03</b>ADMIT ONE</span></div></a>
+  </nav>
+
+  <section class="strip-wrap" id="album">
+    <h3>相冊<em>The reel</em></h3>
+    <div class="strip">
+      <div class="frame"><img src="../p/3741-1280.webp" alt=""><button class="like" data-like><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><span>31</span></button></div>
+      <div class="frame"><img src="../p/3754-1280.webp" alt=""></div>
+      <div class="frame"><img src="../p/3790-1280.webp" alt=""></div>
+    </div>
+    <p class="hint">左右滑動底片 · 點愛心試試</p>
+  </section>
+
+  <section class="notes" id="notes">
+    <h3>傳紙條<em>Ticket stubs</em></h3>
+    <div class="stubnote" data-no="NO.031">爆米花很好吃，再來一桶。<cite>— 翔翔</cite></div>
+    <div class="stubnote alt" data-no="NO.032">從高中看你們走到現在，比看任何一部電影都感動。<cite>— 大安圖傳 103 全班</cite></div>
+    <div class="stubnote priv" data-no="NO.033"><span class="p">只給新人</span>優，妳今天好美。<cite>— Linda 的阿姨</cite></div>
+  </section>
+
+  <section class="quiz" id="quiz">
+    <h3>考考你<em>Intermission</em></h3>
+    <div class="intermission">
+      <small>中場問答　Q.07</small>
+      <p class="qtext">求婚那天，昇翰除了戒指還準備了什麼？</p>
+      <button class="opt" data-right>一首歌</button>
+      <button class="opt">一場煙火</button>
+      <button class="opt">一百朵玫瑰</button>
+    </div>
+  </section>
+  <div class="foot">The end — and the beginning.<small>謝謝光臨</small></div>
+</div>
+<script src="./demo.js"></script>
+<script>
+  // marquee bulbs around the sign
+  const b = document.querySelector(".bulbs"), r = b.getBoundingClientRect(), gap = 22;
+  const add = (x, y, i) => { const e = document.createElement("i"); e.style.cssText = `left:${x - 4.5}px;top:${y - 4.5}px;animation-delay:${(i % 2) * 0.6}s`; b.append(e); };
+  let i = 0;
+  for (let x = 0; x <= r.width; x += gap) { add(x, 0, i++); add(x, r.height, i++); }
+  for (let y = gap; y < r.height; y += gap) { add(0, y, i++); add(r.width, y, i++); }
+  demo({ colors: ["#ff6f7d", "#f2b632", "#f7e9cc", "#2fb7a8"] });
+</script>
+</body>
+</html>
