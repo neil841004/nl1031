@@ -29,7 +29,7 @@ import{D as ae,d as ge,f as ve,u as be,h as vt,r as N,g as M,i as Q,$ as Bt,S as
         <label class="ask-q" for="guest-name">我們該怎麼稱呼你？</label>
         <div class="ask-field">
           <input id="guest-name" name="name" type="text" autocomplete="nickname" enterkeyhint="go" maxlength="20"
-            aria-describedby="name-note" />
+            placeholder="例如：新郎的摯友 杰倫" aria-describedby="name-note" />
           <button class="btn ask-go" type="submit">進場</button>
         </div>
         <p class="ask-note" id="name-note">這個稱呼會出現在你的留言與排行榜上。</p>
